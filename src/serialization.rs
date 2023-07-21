@@ -18,7 +18,7 @@ pub trait ReadU32 {
     fn read_target_u32(&mut self) -> IoResult<U32Target>;
 }
 
-impl<'a> ReadU32 for Buffer<'a> {
+impl ReadU32 for Buffer<'_> {
     #[inline]
     fn read_target_u32(&mut self) -> IoResult<U32Target> {
         Ok(U32Target(self.read_target()?))
